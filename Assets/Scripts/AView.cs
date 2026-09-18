@@ -8,4 +8,9 @@ public abstract class AView : MonoBehaviour
     {
         return CameraController.Instance.Configuration;
     }
+
+    protected virtual void OnDrawGizmos()
+    {
+        GetConfiguration().OnDrawGizmos(Color.aquamarine);
+    }
 }

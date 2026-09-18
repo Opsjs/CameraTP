@@ -29,7 +29,7 @@ public struct CameraConfiguration
         Vector3 position = GetPosition();
         Gizmos.DrawLine(pivot, position);
         Gizmos.matrix = Matrix4x4.TRS(position, GetRotation(), Vector3.one);
-        Gizmos.DrawFrustum(Vector3.zero, fov, 0.5f, 0f, Camera.main.aspect);
+        Gizmos.DrawFrustum(Vector3.zero, fov, 10f, 0f, Camera.main.aspect);
         Gizmos.matrix = Matrix4x4.identity;
     }
 
@@ -63,7 +63,7 @@ public class CameraController : MonoBehaviour
         ApplyConfiguration();
     }
 
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         configuration.OnDrawGizmos(Color.coral);
     }
@@ -71,6 +71,7 @@ public class CameraController : MonoBehaviour
     private void ApplyConfiguration()
     {
         camera.fieldOfView = configuration.fov;
+        Debug.Log(camera.transform);
         camera.transform.rotation = configuration.GetRotation();
         camera.transform.position = configuration.GetPosition();
     }
