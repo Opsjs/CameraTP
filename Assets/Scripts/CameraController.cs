@@ -22,7 +22,7 @@ public struct CameraConfiguration
         return pivot + GetRotation() * (Vector3.back * distance);
     }
     
-    public void DrawGizmos(Color color)
+    public void OnDrawGizmos(Color color)
     {
         Gizmos.color = color;
         Gizmos.DrawSphere(pivot, 0.25f);
@@ -61,7 +61,7 @@ public class CameraController : MonoBehaviour
     {
         configuration = ComputeAverage();
         ApplyConfiguration();
-        configuration.DrawGizmos(Color.blue);
+        configuration.OnDrawGizmos(Color.blue);
     }
 
     
