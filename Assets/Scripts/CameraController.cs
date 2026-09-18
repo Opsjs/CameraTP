@@ -61,10 +61,13 @@ public class CameraController : MonoBehaviour
     {
         configuration = ComputeAverage();
         ApplyConfiguration();
-        configuration.OnDrawGizmos(Color.blue);
     }
 
-    
+    private void OnDrawGizmos()
+    {
+        configuration.OnDrawGizmos(Color.coral);
+    }
+
     private void ApplyConfiguration()
     {
         camera.fieldOfView = configuration.fov;
