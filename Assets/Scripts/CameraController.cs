@@ -62,6 +62,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        if (activeViews.Count == 0) return;
         configuration = ComputeAverage();
         targetConfiguration = ComputeAverage();
     }
@@ -82,7 +83,7 @@ public class CameraController : MonoBehaviour
         ApplyConfiguration();
     }
 
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         configuration.OnDrawGizmos(Color.coral);
     }
@@ -95,6 +96,7 @@ public class CameraController : MonoBehaviour
         }
 
         camera.fieldOfView = configuration.fov;
+        Debug.Log(camera.transform);
         camera.transform.rotation = configuration.GetRotation();
         camera.transform.position = configuration.GetPosition();
     }
