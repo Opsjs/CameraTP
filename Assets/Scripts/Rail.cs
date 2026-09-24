@@ -54,7 +54,7 @@ public class Rail : MonoBehaviour
         return distance;
     }
     
-    private Vector3 GetPosition(float distance)
+    public Vector3 GetPosition(float distance)
     {
         distance = GetDistanceForPosition(distance);
         for (int i = 0; i < transform.childCount - 1; i++)
