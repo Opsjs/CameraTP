@@ -29,7 +29,7 @@ public struct CameraConfiguration
         Vector3 position = GetPosition();
         Gizmos.DrawLine(pivot, position);
         Gizmos.matrix = Matrix4x4.TRS(position, GetRotation(), Vector3.one);
-        Gizmos.DrawFrustum(Vector3.zero, fov, 0.5f, 0f, Camera.main.aspect);
+        Gizmos.DrawFrustum(Vector3.zero, fov, 10f, 0f, Camera.main.aspect);
         Gizmos.matrix = Matrix4x4.identity;
     }
 
@@ -40,8 +40,10 @@ public class CameraController : MonoBehaviour
     public Camera camera;
     private CameraConfiguration configuration;
     public CameraConfiguration Configuration {get {return configuration;}}
+    private CameraConfiguration targetConfiguration;
     private List<AView> activeViews = new List<AView>();
-    
+    public float smoothSpeed;
+
     private static CameraController instance = null;
     public static CameraController Instance => instance;
     private void Awake()
@@ -57,9 +59,26 @@ public class CameraController : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    private void Update()
+
+    private void Start()
     {
         configuration = ComputeAverage();
+        targetConfiguration = ComputeAverage();
+    }
+
+    private void Update()
+    {
+        targetConfiguration = ComputeAverage();
+
+        configuration.yaw = Mathf.LerpAngle(configuration.yaw, targetConfiguration.yaw, smoothSpeed * Time.deltaTime);
+        configuration.pitch = Mathf.LerpAngle(configuration.pitch, targetConfiguration.pitch, smoothSpeed * Time.deltaTime);
+        configuration.roll = Mathf.LerpAngle(configuration.roll, targetConfiguration.roll, smoothSpeed * Time.deltaTime);
+
+        configuration.pivot = Vector3.Lerp(configuration.pivot, targetConfiguration.pivot, smoothSpeed * Time.deltaTime);
+        configuration.distance = Mathf.Lerp(configuration.distance, targetConfiguration.distance, smoothSpeed * Time.deltaTime);
+        configuration.fov = Mathf.Lerp(configuration.fov, targetConfiguration.fov, smoothSpeed * Time.deltaTime);
+
+
         ApplyConfiguration();
     }
 
@@ -70,6 +89,11 @@ public class CameraController : MonoBehaviour
 
     private void ApplyConfiguration()
     {
+        if (camera == null)
+        {
+            return;
+        }
+
         camera.fieldOfView = configuration.fov;
         camera.transform.rotation = configuration.GetRotation();
         camera.transform.position = configuration.GetPosition();
@@ -109,6 +133,7 @@ public class CameraController : MonoBehaviour
         cameraConfiguration.yaw = ComputeAverageYaw();
 
         return cameraConfiguration;
+
     }
 
     public float ComputeAverageYaw()
@@ -122,4 +147,5 @@ public class CameraController : MonoBehaviour
         }
         return Vector2.SignedAngle(Vector2.right, sum);
     }
+
 }
