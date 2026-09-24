@@ -149,12 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FixedView
   weight: 20
-  isActiveOnStart: 1
   yaw: 6
   pitch: 100
   roll: 10
   fov: 20
-  isActiveOnStart1: 0
+  isActiveOnStart: 1
 --- !u!4 &113651237
 Transform:
   m_ObjectHideFlags: 0
@@ -297,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   camera: {fileID: 1945900950}
-  smoothSpeed: 5
+  smoothSpeed: 0.5
 --- !u!4 &816519790
 Transform:
   m_ObjectHideFlags: 0
@@ -343,12 +342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FixedView
   weight: 10
-  isActiveOnStart: 1
   yaw: 6
   pitch: 50
   roll: 10
   fov: 10
-  isActiveOnStart1: 0
+  isActiveOnStart: 1
 --- !u!4 &974454216
 Transform:
   m_ObjectHideFlags: 0
@@ -359,74 +357,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.47851, y: 9.36, z: 10.16611}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1594553650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1594553652}
-  - component: {fileID: 1594553651}
-  m_Layer: 0
-  m_Name: FreeFollowView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1594553651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594553650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c4385b5d45e694487edcb8cd535293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FreeFollowView
-  weight: 1
-  isActiveOnStart: 0
-  pitch:
-  - 0
-  - 0
-  - 0
-  roll:
-  - 0
-  - 0
-  - 0
-  fov:
-  - 0
-  - 0
-  - 0
-  yaw: 0
-  yawSpeed: 100
-  target: {fileID: 1714192037}
-  curve:
-    A: {x: 0, y: 0, z: 0}
-    B: {x: 0, y: 0, z: 0}
-    C: {x: 0, y: 0, z: 0}
-    D: {x: 0, y: 0, z: 0}
-  curvePosition: 0
-  curveSpeed: 1
---- !u!4 &1594553652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594553650}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.15877, y: -0, z: 7.12743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,7 +375,7 @@ GameObject:
   - component: {fileID: 1714192035}
   - component: {fileID: 1714192034}
   m_Layer: 0
-  m_Name: Target
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 1714192033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.29, y: 0, z: 3.04}
   m_LocalScale: {x: 3.63, y: 3.63, z: 3.63}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -646,4 +576,3 @@ SceneRoots:
   - {fileID: 816519790}
   - {fileID: 974454216}
   - {fileID: 113651237}
-  - {fileID: 1594553652}
