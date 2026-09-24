@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class Curve : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private Vector3 A;
+    private Vector3 B;
+    private Vector3 C;
+    private Vector3 D;
+
+    public Vector3 GetPosition(float t)
     {
-        
+        return GetPosition(t);
     }
 
-    // Update is called once per frame
-    void Update()
+    public Vector3 GetPosition(float t, Matrix4x4 localToWorldMatrix)
     {
-        
+        return GetPosition(t);
+    }
+
+    public void DrawGizmos(Color c, Matrix4x4 localToWorldMatrix)
+    {
+        Gizmos.color = c;
+        Gizmos.DrawLine(A, B);
+
     }
 }
