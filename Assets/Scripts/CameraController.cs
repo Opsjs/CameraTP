@@ -59,6 +59,7 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
+        if (activeViews.Count == 0) return;
         configuration = ComputeAverage();
         ApplyConfiguration();
     }
