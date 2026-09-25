@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ViewVolumeBlender : MonoBehaviour
 {
@@ -47,6 +48,14 @@ public class ViewVolumeBlender : MonoBehaviour
         {
             volumesPerView.Remove(volume.view);
             volume.view.SetActive(false);
+        }
+    }
+
+    private void OnGUI()
+    {
+        foreach (AViewVolume volume in activeViewVolumes)
+        {
+            GUILayout.Label(volume.view.name);
         }
     }
 }
