@@ -119,56 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &113651235
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 113651237}
-  - component: {fileID: 113651236}
-  m_Layer: 0
-  m_Name: FixedView (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &113651236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113651235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c041ab0730327884392433a777796a00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FixedView
-  weight: 20
-  yaw: 6
-  pitch: 100
-  roll: 10
-  fov: 20
-  isActiveOnStart: 1
---- !u!4 &113651237
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113651235}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.47851, y: 10.8, z: -12.99}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331722836
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +227,7 @@ GameObject:
   - component: {fileID: 816519790}
   - component: {fileID: 816519789}
   m_Layer: 0
-  m_Name: cameracontroller
+  m_Name: cameraController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   camera: {fileID: 1945900950}
-  smoothSpeed: 0.5
+  smoothSpeed: 5
 --- !u!4 &816519790
 Transform:
   m_ObjectHideFlags: 0
@@ -312,7 +262,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &974454214
+--- !u!1 &1594553650
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,43 +270,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 974454216}
-  - component: {fileID: 974454215}
+  - component: {fileID: 1594553652}
+  - component: {fileID: 1594553651}
   m_Layer: 0
-  m_Name: FixedView
+  m_Name: FreeFollowView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &974454215
+--- !u!114 &1594553651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974454214}
+  m_GameObject: {fileID: 1594553650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c041ab0730327884392433a777796a00, type: 3}
+  m_Script: {fileID: 11500000, guid: 46c4385b5d45e694487edcb8cd535293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FixedView
+  m_EditorClassIdentifier: Assembly-CSharp::FreeFollowView
   weight: 10
-  yaw: 6
-  pitch: 50
-  roll: 10
-  fov: 10
   isActiveOnStart: 1
---- !u!4 &974454216
+  pitch:
+  - 1
+  - 0
+  - 0
+  roll:
+  - 0
+  - 0
+  - 0
+  fov:
+  - 60
+  - 60
+  - 60
+  yaw: 0
+  yawSpeed: 100
+  target: {fileID: 1714192037}
+  curve:
+    A: {x: 0, y: 3, z: -3}
+    B: {x: 0, y: 3, z: -10}
+    C: {x: 0, y: -3, z: -10}
+    D: {x: 0, y: -3, z: -3}
+  curvePosition: 0
+  curveSpeed: 1
+--- !u!4 &1594553652
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974454214}
+  m_GameObject: {fileID: 1594553650}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.47851, y: 9.36, z: 10.16611}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -375,7 +343,7 @@ GameObject:
   - component: {fileID: 1714192035}
   - component: {fileID: 1714192034}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +436,7 @@ Transform:
   m_GameObject: {fileID: 1714192033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.29, y: 0, z: 3.04}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.63, y: 3.63, z: 3.63}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -560,8 +528,8 @@ Transform:
   m_GameObject: {fileID: 1945900947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.83, y: -0.16, z: -15.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -574,5 +542,4 @@ SceneRoots:
   - {fileID: 331722838}
   - {fileID: 1714192037}
   - {fileID: 816519790}
-  - {fileID: 974454216}
-  - {fileID: 113651237}
+  - {fileID: 1594553652}

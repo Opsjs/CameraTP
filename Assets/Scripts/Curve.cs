@@ -34,13 +34,9 @@ public class Curve
         Gizmos.DrawSphere(WorldC, 0.5f);
         Gizmos.DrawSphere(WorldD, 0.5f);
 
-        Gizmos.DrawLine(WorldA, WorldB);
-        Gizmos.DrawLine(WorldB, WorldC);
-        Gizmos.DrawLine(WorldC, WorldD);
-
         int steps = 20;
         Vector3 previousPoint = WorldA;
-        for(int i = 1; i < steps; i++)
+        for(int i = 1; i <= steps; i++)
         {
             float stepT = i / (float) steps;
             Vector3 CurrentPoint = GetPosition(stepT, localToWorldMatrix);

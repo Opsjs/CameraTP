@@ -7,7 +7,7 @@ public abstract class AView : MonoBehaviour
 
     public bool isActiveOnStart;
 
-    private void Start()
+    protected virtual void Start()
     {
         if (isActiveOnStart)
         {

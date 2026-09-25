@@ -17,11 +17,6 @@ public class FreeFollowView : AView
     public float curveSpeed;
 
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
