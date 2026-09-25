@@ -294,7 +294,7 @@ MonoBehaviour:
   weight: 10
   isActiveOnStart: 1
   pitch:
-  - 1
+  - 0
   - 0
   - 0
   roll:
@@ -309,10 +309,10 @@ MonoBehaviour:
   yawSpeed: 100
   target: {fileID: 1714192037}
   curve:
-    A: {x: 0, y: 3, z: -3}
+    A: {x: 0, y: 3, z: -7}
     B: {x: 0, y: 3, z: -10}
     C: {x: 0, y: -3, z: -10}
-    D: {x: 0, y: -3, z: -3}
+    D: {x: 0, y: -3, z: -7}
   curvePosition: 0
   curveSpeed: 1
 --- !u!4 &1594553652

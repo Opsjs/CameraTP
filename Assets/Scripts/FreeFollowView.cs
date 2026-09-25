@@ -12,7 +12,6 @@ public class FreeFollowView : AView
     public Transform target;
 
     public Curve curve = new Curve();
-
     public float curvePosition;
     public float curveSpeed;
 
@@ -23,7 +22,7 @@ public class FreeFollowView : AView
         yaw += horizontalInput * yawSpeed * Time.deltaTime;
 
         float verticalInput = Input.GetAxis("Vertical");
-        curvePosition += verticalInput * curveSpeed * Time.deltaTime;
+        curvePosition -= verticalInput * curveSpeed * Time.deltaTime;
         curvePosition = Mathf.Clamp01(curvePosition);
     }
 
