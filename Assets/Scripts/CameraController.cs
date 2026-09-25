@@ -96,7 +96,6 @@ public class CameraController : MonoBehaviour
         }
 
         camera.fieldOfView = configuration.fov;
-        Debug.Log(camera.transform);
         camera.transform.rotation = configuration.GetRotation();
         camera.transform.position = configuration.GetPosition();
     }
