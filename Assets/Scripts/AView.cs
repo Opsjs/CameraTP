@@ -5,14 +5,10 @@ public abstract class AView : MonoBehaviour
 {
     public float weight;
 
-    public bool isActiveOnStart;
 
     protected virtual void Start()
     {
-        if (isActiveOnStart)
-        {
-            SetActive(true);
-        }
+
     }
 
     public void SetActive(bool isActive)
