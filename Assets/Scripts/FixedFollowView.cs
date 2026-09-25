@@ -8,7 +8,6 @@ public class FixedFollowView : AView
     public float fov;
     public GameObject target;
     public GameObject centralPoint;
-    public bool isActive;
     public float yawOffsetMax;
     public float pitchOffsetMax;
 
@@ -18,10 +17,7 @@ public class FixedFollowView : AView
     private float originalYaw;
     private void Start()
     {
-        if (isActive)
-        {
-            SetActive(true);
-        }
+        
         dir = (centralPoint.transform.position - transform.position).normalized;
         originalYaw = Atan2(dir.x, dir.z) * Rad2Deg;
     }
@@ -46,11 +42,7 @@ public class FixedFollowView : AView
         return cameraConfiguration;
     }
     
-    public void SetActive(bool isActive)
-    {
-        if (isActive) CameraController.Instance.AddView(this);
-        else CameraController.Instance.RemoveView(this);
-    }
+
 
     protected override void OnDrawGizmos()
     {
