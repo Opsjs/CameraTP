@@ -6,6 +6,8 @@ public class TriggeredViewVolume : AViewVolume
 {
     public GameObject target;
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(target.tag))

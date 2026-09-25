@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   camera: {fileID: 1945900950}
-  smoothSpeed: 50
+  smoothSpeed: 5
 --- !u!4 &816519790
 Transform:
   m_ObjectHideFlags: 0
