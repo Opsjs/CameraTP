@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
     public CameraConfiguration Configuration {get {return configuration;}}
     private CameraConfiguration targetConfiguration;
     private List<AView> activeViews = new List<AView>();
-    public float smoothSpeed;
+    public float smoothSpeed = 5;
 
     private static CameraController instance = null;
     public static CameraController Instance => instance;
@@ -85,11 +85,12 @@ public class CameraController : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        configuration.OnDrawGizmos(Color.coral);
+        //configuration.OnDrawGizmos(Color.coral);
     }
 
     private void ApplyConfiguration()
     {
+        if (activeViews.Count == 0) return;
         if (camera == null)
         {
             return;
