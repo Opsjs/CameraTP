@@ -10,6 +10,7 @@ public class Rail : MonoBehaviour
     public float position;
 
     private float length;
+    
 
 
     private void Start()
@@ -78,6 +79,36 @@ public class Rail : MonoBehaviour
         
     }
     
+    public Vector3 GetNearestPointOnRail(Vector3 target)
+    {
+        List<Vector3> nearestPointsBySegment = new List<Vector3>();
+        for (int i = 0; i < transform.childCount - 1; i++)
+        {
+            nearestPointsBySegment.Add(MathUtils.GetNearestPointOnSegment(transform.GetChild(i).transform.position, transform.GetChild(i + 1).transform.position, target));
+        }
+
+        if (IsLoop)
+        {
+            nearestPointsBySegment.Add(MathUtils.GetNearestPointOnSegment(transform.GetChild(transform.childCount - 1).transform.position, transform.GetChild(0).transform.position, target));
+        }
+        
+        return GetNearestPointFromList(nearestPointsBySegment, target);
+
+    }
+    
+
+    private Vector3 GetNearestPointFromList(List<Vector3> points, Vector3 target)
+    {
+        Vector3 nearestPoint = points[0];
+        foreach (Vector3 point in points)
+        {
+            if (Vector3.Distance(point, target) < Vector3.Distance(nearestPoint, target))
+            {
+                nearestPoint = point;
+            }
+        }
+        return nearestPoint;
+    }
     
     public void OnDrawGizmos()
     {
@@ -103,5 +134,7 @@ public class Rail : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.GetChild(transform.childCount - 1).transform.position, transform.GetChild(0).transform.position);
         }
+        
+        
     }
 }

@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FixedView
   weight: 20
+  isActiveOnStart: 0
   yaw: 3.88
   pitch: 14.98
   roll: 10
   fov: 20
-  isActiveOnStart: 0
 --- !u!4 &113651237
 Transform:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 199008707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.46, y: 9.61, z: 18.03}
+  m_LocalPosition: {x: -52.9, y: 9.61, z: 13.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DollyView
   weight: 100
-  isActive: 1
+  isActiveOnStart: 1
   roll: 0
   distance: 15
   fov: 60
@@ -396,6 +396,7 @@ MonoBehaviour:
   rail: {fileID: 1889875999}
   distanceOnRail: 5
   speed: 1
+  IsAuto: 1
 --- !u!4 &792634293
 Transform:
   m_ObjectHideFlags: 0
@@ -405,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 792634291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.77265, y: -0, z: -1.0341}
+  m_LocalPosition: {x: -30.506401, y: 8.046663, z: -3.259964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -441,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   camera: {fileID: 1945900950}
+  smoothSpeed: 0
 --- !u!4 &816519790
 Transform:
   m_ObjectHideFlags: 0
@@ -534,11 +536,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FixedFollowView
   weight: 10
+  isActiveOnStart: 0
   roll: -10
   fov: 58.45
   target: {fileID: 0}
   centralPoint: {fileID: 2145438969}
-  isActive: 0
   yawOffsetMax: 0
   pitchOffsetMax: 0
   yaw: 0
@@ -572,11 +574,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FixedView
   weight: 10
+  isActiveOnStart: 0
   yaw: -10.71
   pitch: 45
   roll: 0
   fov: 60
-  isActiveOnStart: 0
 --- !u!4 &974454216
 Transform:
   m_ObjectHideFlags: 0
@@ -793,7 +795,7 @@ Transform:
   m_GameObject: {fileID: 1714192033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.2, y: 0, z: 2.4}
+  m_LocalPosition: {x: -34.4, y: 0, z: -7.4}
   m_LocalScale: {x: 3.63, y: 3.63, z: 3.63}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1163,11 +1165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FixedFollowView
   weight: 10
+  isActiveOnStart: 0
   roll: 10
   fov: 58.45
   target: {fileID: 0}
   centralPoint: {fileID: 1900270665}
-  isActive: 1
   yawOffsetMax: 20
   pitchOffsetMax: 0
   yaw: 0
