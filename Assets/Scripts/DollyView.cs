@@ -4,7 +4,6 @@ using static UnityEngine.Mathf;
 
 public class DollyView : AView
 {
-    public bool isActive;
     
     public float roll;
     public float distance;
@@ -20,10 +19,7 @@ public class DollyView : AView
     private float yaw;
     private float pitch;
 
-    private void Start()
-    {
-        SetActive(isActive);
-    }
+
 
 
     private void Update()
@@ -52,13 +48,7 @@ public class DollyView : AView
         return cameraConfiguration;
     }
     
-    
-    public void SetActive(bool isActive)
-    {
-        if (isActive) CameraController.Instance.AddView(this);
-        else CameraController.Instance.RemoveView(this);
-    }
-    
+
     protected override void OnDrawGizmos()
     {
         GetConfiguration().OnDrawGizmos(Color.blueViolet);
