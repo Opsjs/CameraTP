@@ -20,14 +20,14 @@ public class DollyView : AView
 
     private Vector3 dir;
     private float yaw;
-    private float pitch;
+    public float pitch;
 
 
 
 
     private void Update()
     {
-        dir = (target.transform.position - transform.position).normalized;
+        dir = (target.transform.position - CameraController.Instance.camera.transform.position).normalized;
         yaw = Atan2(dir.x, dir.z) * Rad2Deg;
         pitch = -Asin(dir.y) * Rad2Deg;
 
@@ -40,7 +40,6 @@ public class DollyView : AView
             distanceOnRail += Input.GetAxis("Horizontal") * speed;
             
             this.transform.position = rail.GetPosition(distanceOnRail);
-            
         }
         
     }
@@ -60,6 +59,9 @@ public class DollyView : AView
 
     protected override void OnDrawGizmos()
     {
+        
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(this.transform.position, this.target.transform.position);
         GetConfiguration().OnDrawGizmos(Color.blueViolet);
         Gizmos.color = Color.blue;
         this.transform.position = rail.GetNearestPointOnRail(target.transform.position);
