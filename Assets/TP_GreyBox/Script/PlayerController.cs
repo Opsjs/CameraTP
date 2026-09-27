@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour {
 
                 break;
         }
-        direction += Input.GetAxisRaw("Horizontal") * right;
-        direction += Input.GetAxisRaw("Vertical") * forward;
+        direction += ((Input.GetKey(KeyCode.D) ? 1 : 0) + (Input.GetKey(KeyCode.A) ? -1 : 0)) * right;
+        direction += ((Input.GetKey(KeyCode.W) ? 1 : 0) + (Input.GetKey(KeyCode.S) ? -1 : 0)) * forward;
         direction.Normalize();
         _rigidbody.linearVelocity = direction * speed + Vector3.up * _rigidbody.linearVelocity.y;
     }

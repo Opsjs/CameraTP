@@ -37,7 +37,6 @@ public class DollyView : AView
         }
         else
         {
-            Debug.Log(Input.GetAxis("Horizontal"));
             distanceOnRail += Input.GetAxis("Horizontal") * speed;
             
             this.transform.position = rail.GetPosition(distanceOnRail);

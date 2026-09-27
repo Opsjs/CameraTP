@@ -74,7 +74,6 @@ public class Rail : MonoBehaviour
         }
         Vector3 pos2 = (transform.GetChild(0).transform.position - transform.GetChild(transform.childCount - 1).transform.position).normalized * distance;
         pos2 += transform.GetChild(transform.childCount - 1).transform.position;
-        Debug.Log(pos2);
         return pos2;
         
     }

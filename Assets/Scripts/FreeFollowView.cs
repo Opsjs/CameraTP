@@ -1,4 +1,6 @@
 using UnityEngine;
+using static UnityEngine.Mathf;
+
 
 public class FreeFollowView : AView
 {
@@ -15,7 +17,7 @@ public class FreeFollowView : AView
     public float curvePosition;
     public float curveSpeed;
 
-
+    
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
