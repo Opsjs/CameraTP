@@ -64,7 +64,7 @@ public class DollyView : AView
         Gizmos.DrawLine(this.transform.position, this.target.transform.position);
         GetConfiguration().OnDrawGizmos(Color.blueViolet);
         Gizmos.color = Color.blue;
-        this.transform.position = rail.GetNearestPointOnRail(target.transform.position);
+        //this.transform.position = rail.GetNearestPointOnRail(target.transform.position);
         Gizmos.DrawSphere(rail.GetNearestPointOnRail(target.transform.position), .4f);
     }
 

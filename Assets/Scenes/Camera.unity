@@ -394,7 +394,7 @@ MonoBehaviour:
   rail: {fileID: 1889875999}
   distanceOnRail: 5
   speed: 1
-  IsAuto: 0
+  IsAuto: 1
   pitch: 0
 --- !u!4 &792634293
 Transform:

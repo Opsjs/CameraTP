@@ -26220,7 +26220,7 @@ MonoBehaviour:
   rail: {fileID: 2056039410}
   distanceOnRail: 10
   speed: 1
-  IsAuto: 1
+  IsAuto: 0
   pitch: 0
 --- !u!4 &668468499
 Transform:
@@ -124011,7 +124011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GlobalViewVolume
   priority: 0
   view: {fileID: 982540692}
-  IsCutOnSwitch: 0
+  IsCutOnSwitch: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
