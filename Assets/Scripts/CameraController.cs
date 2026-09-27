@@ -43,6 +43,7 @@ public class CameraController : MonoBehaviour
     private CameraConfiguration targetConfiguration;
     private List<AView> activeViews = new List<AView>();
     public float smoothSpeed = 5;
+    private bool IsCutRequested;
 
     private static CameraController instance = null;
     public static CameraController Instance => instance;
@@ -71,21 +72,31 @@ public class CameraController : MonoBehaviour
     {
         targetConfiguration = ComputeAverage();
 
-        configuration.yaw = Mathf.LerpAngle(configuration.yaw, targetConfiguration.yaw, smoothSpeed * Time.deltaTime);
-        configuration.pitch = Mathf.LerpAngle(configuration.pitch, targetConfiguration.pitch, smoothSpeed * Time.deltaTime);
-        configuration.roll = Mathf.LerpAngle(configuration.roll, targetConfiguration.roll, smoothSpeed * Time.deltaTime);
+        if (IsCutRequested)
+        {
+            configuration = targetConfiguration;
+            IsCutRequested = false;
+        }
+        else
+        {
+            configuration.yaw = Mathf.LerpAngle(configuration.yaw, targetConfiguration.yaw, smoothSpeed * Time.deltaTime);
+            configuration.pitch = Mathf.LerpAngle(configuration.pitch, targetConfiguration.pitch, smoothSpeed * Time.deltaTime);
+            configuration.roll = Mathf.LerpAngle(configuration.roll, targetConfiguration.roll, smoothSpeed * Time.deltaTime);
 
-        configuration.pivot = Vector3.Lerp(configuration.pivot, targetConfiguration.pivot, smoothSpeed * Time.deltaTime);
-        configuration.distance = Mathf.Lerp(configuration.distance, targetConfiguration.distance, smoothSpeed * Time.deltaTime);
-        configuration.fov = Mathf.Lerp(configuration.fov, targetConfiguration.fov, smoothSpeed * Time.deltaTime);
-
-
+            configuration.pivot = Vector3.Lerp(configuration.pivot, targetConfiguration.pivot, smoothSpeed * Time.deltaTime);
+            configuration.distance = Mathf.Lerp(configuration.distance, targetConfiguration.distance, smoothSpeed * Time.deltaTime);
+            configuration.fov = Mathf.Lerp(configuration.fov, targetConfiguration.fov, smoothSpeed * Time.deltaTime);
+        }
         ApplyConfiguration();
+        
+        
+
+
     }
 
-    public void OnDrawGizmos()
+    public void Cut()
     {
-        //configuration.OnDrawGizmos(Color.coral);
+        IsCutRequested = true;
     }
 
     private void ApplyConfiguration()
@@ -127,6 +138,9 @@ public class CameraController : MonoBehaviour
             
             totalWeight += view.weight;
         }
+
+        if (totalWeight == 0) return new CameraConfiguration();
+        
         cameraConfiguration.pivot /= totalWeight;
         cameraConfiguration.pitch /= totalWeight;
         cameraConfiguration.roll /= totalWeight;

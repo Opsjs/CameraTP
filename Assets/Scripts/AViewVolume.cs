@@ -9,6 +9,8 @@ public abstract class AViewVolume : MonoBehaviour
     private int uid;
     public int Uid => uid;
     private static int nextUid = 0;
+
+    public bool IsCutOnSwitch;
     
     protected bool IsActive {get; private set;}
 
@@ -25,6 +27,7 @@ public abstract class AViewVolume : MonoBehaviour
 
     protected virtual void SetActive(bool active)
     {
+        
         IsActive = active;
         if (active)
         {
@@ -33,6 +36,11 @@ public abstract class AViewVolume : MonoBehaviour
         else
         {
             ViewVolumeBlender.Instance.RemoveVolume(this);
+        }
+        if (IsCutOnSwitch)
+        {
+            ViewVolumeBlender.Instance.Update();
+            CameraController.Instance.Cut();
         }
     }
 }

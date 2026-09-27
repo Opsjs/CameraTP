@@ -30,7 +30,7 @@ public class ViewVolumeBlender : MonoBehaviour
 
     public void AddVolume(AViewVolume volume)
     {
-        
+        Update();
         activeViewVolumes.Add(volume);
         if (!volumesPerView.ContainsKey(volume.view))
         {
@@ -42,6 +42,7 @@ public class ViewVolumeBlender : MonoBehaviour
 
     public void RemoveVolume(AViewVolume volume)
     {
+        Update();
         activeViewVolumes.Remove(volume);
         volumesPerView[volume.view].Remove(volume);
         if (volumesPerView[volume.view].Count == 0)
@@ -51,13 +52,13 @@ public class ViewVolumeBlender : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         foreach (AView view in volumesPerView.Keys)
         {
             view.weight = 0f;
         }
-
+        
         activeViewVolumes.Sort((v1, v2) =>
         {
             int comparePriority = v1.priority.CompareTo(v2.priority);
@@ -67,19 +68,21 @@ public class ViewVolumeBlender : MonoBehaviour
             }
             return v1.Uid.CompareTo(v2.Uid);
         });
-
+        
         foreach(AViewVolume v in activeViewVolumes)
         {
             float weight = Mathf.Clamp01(v.ComputeSelfWeight());
-            float reminingWeight = 1.0f - weight;
-
+            float remainingWeight = 1.0f - weight;
+        
             foreach(AView view in volumesPerView.Keys)
             {
-                view.weight *= reminingWeight;
+                view.weight *= remainingWeight;
             }
-
+        
             v.view.weight += weight;
         }
+        
+        
     }
 
     private void OnGUI()
